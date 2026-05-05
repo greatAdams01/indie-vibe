@@ -1,0 +1,113 @@
+import React from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+
+export default function About() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
+  return (
+    <section id="about" ref={containerRef} className="py-24 md:py-32 bg-espresso text-cream overflow-hidden relative">
+      {/* Decorative texture overlay */}
+      <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+          
+          <div className="w-full lg:w-5/12 flex flex-col justify-center order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-[10px] uppercase tracking-[0.2em] text-ochre font-bold mb-4 border-l-2 border-terracotta pl-2">
+                Brand Essence
+              </h2>
+              <h3 className="font-serif font-extrabold text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tighter mb-8 lowercase text-sand">
+                from <span className="text-terracotta italic">creation</span> <br />
+                to <span className="underline decoration-ochre decoration-4 underline-offset-8">community</span>.
+              </h3>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6 text-cream/80 font-medium text-lg leading-relaxed relative"
+            >
+              <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-terracotta to-ochre"></div>
+              <p>
+                <strong className="text-sand font-bold">Indie Vibe House Party</strong> is a live music collective and cultural platform that makes independent music feel like home through intimate events, creative collaboration, and community-driven experiences.
+              </p>
+
+              <div className="pt-4 space-y-8">
+                <div className="bg-sand/5 p-6 border-l-2 border-ochre hover:bg-sand/10 transition-colors">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-ochre font-bold mb-2">Our Mission</h4>
+                  <p className="text-base leading-snug">
+                    To elevate independent music voices by curating intentional experiences that foster artistic growth, professional opportunities, and meaningful community connections across Africa and beyond.
+                  </p>
+                </div>
+
+                <div className="bg-sand/5 p-6 border-l-2 border-terracotta hover:bg-sand/10 transition-colors">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-terracotta font-bold mb-2">Our Vision</h4>
+                  <p className="text-base leading-snug">
+                    To evolve into a global indie music movement recognized for cultivating culture, amplifying authentic voices, and co-creating sustainable pathways for independent artists.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-12 inline-block bg-terracotta p-6 shadow-[8px_8px_0px_#D99C3B] rotate-[-1deg]"
+            >
+              <p className="font-serif font-bold text-2xl text-cream leading-tight lowercase">
+                "Not just an audience, <br />but a community."
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="w-full lg:w-7/12 relative min-h-[500px] lg:min-h-[600px] order-1 lg:order-2">
+            <motion.div 
+              style={{ y: y1 }}
+              className="absolute top-0 right-0 w-3/4 md:w-2/3 aspect-[3/4] z-10"
+            >
+              <div className="w-full h-full border-4 border-cream bg-espresso shadow-[12px_12px_0px_#B94B29] overflow-hidden p-2">
+                <img 
+                  src="https://images.unsplash.com/photo-1542617658-6cad5a53e414?q=80&w=1770&auto=format&fit=crop" 
+                  alt="Musician with a vintage afro vibe" 
+                  className="w-full h-full object-cover mix-blend-luminosity brightness-90 contrast-125 sepia-[.3]"
+                />
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              style={{ y: y2 }}
+              className="absolute bottom-10 left-0 w-1/2 md:w-5/12 aspect-square z-20"
+            >
+              <div className="w-full h-full border-4 border-espresso bg-ochre shadow-[8px_8px_0px_#EAE3D9] overflow-hidden p-2">
+                <img 
+                  src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1769&auto=format&fit=crop" 
+                  alt="Vinyl records" 
+                  className="w-full h-full object-cover mix-blend-multiply opacity-80 contrast-150 sepia-[.2]"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
