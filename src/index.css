@@ -13,11 +13,16 @@
   --color-ochre: #D99C3B;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-cream);
   color: var(--color-espresso);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Base text setups */

@@ -17,11 +17,11 @@ export default function Navbar() {
   const navLinks = [
     { label: 'HOME', href: '#' },
     { label: 'ABOUT US', href: '#about' },
-    { label: 'ARTISTS +', href: '#services' },
-    { label: 'EVENTS', href: '#services' },
-    { label: 'SHOP', href: '#' },
-    { label: 'BLOG', href: '#' },
-    { label: 'CONTACT', href: '#faq' },
+    { label: 'SERVICES', href: '#services' },
+    { label: 'WHY IVHP', href: '#why-us' },
+    { label: 'GALLERY', href: '#gallery' },
+    { label: 'FAQ', href: '#faq' },
+    { label: 'CONTACT', href: '#contact' },
   ];
 
   return (
@@ -35,7 +35,12 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex-shrink-0">
-            <a href="#" className={`font-serif font-extrabold text-2xl tracking-tighter lowercase transition-colors ${isScrolled ? 'text-white' : 'text-transparent'}`}>
+            <a
+              href="#"
+              className={`font-serif font-extrabold text-2xl tracking-tighter lowercase transition-colors ${
+                isScrolled ? 'text-white' : 'text-white lg:text-transparent'
+              }`}
+            >
               ivhp.
             </a>
           </div>
@@ -100,7 +105,7 @@ export default function Navbar() {
             
             <div className="pb-8 px-4 relative z-10 mt-auto">
               <a
-                href="#book"
+                href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center w-full py-4 text-xs uppercase tracking-[0.15em] font-bold bg-white text-[#0a0a0a]"
               >
