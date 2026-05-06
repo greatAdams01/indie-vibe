@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const galleryPhotos = [
   { image: '/PHOTO-2026-05-05-18-44-36.jpg' },
@@ -10,8 +9,21 @@ const galleryPhotos = [
 ];
 
 export default function Gallery() {
-  // Duplicate for seamless infinite marquee
+  const marqueeRowRef = useRef<HTMLDivElement>(null);
+  const [marqueeRunning, setMarqueeRunning] = useState(true);
   const marqueeItems = [...galleryPhotos, ...galleryPhotos];
+
+  useEffect(() => {
+    const row = marqueeRowRef.current;
+    if (!row || typeof IntersectionObserver === 'undefined') return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => setMarqueeRunning(entry.isIntersecting),
+      { rootMargin: '120px 0px', threshold: 0 },
+    );
+    io.observe(row);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-cream text-espresso relative overflow-hidden">
@@ -36,11 +48,17 @@ export default function Gallery() {
       </div>
 
       {/* Infinite Marquee */}
-      <div className="relative w-full max-w-[100vw] overflow-hidden flex bg-ochre py-8 sm:py-12 border-y-4 sm:border-y-8 border-espresso shadow-[0_10px_0_#2A2321] -rotate-1 hover:rotate-0 transition-transform duration-500">
-        <div className="flex animate-marquee whitespace-nowrap min-w-max">
+      <div
+        ref={marqueeRowRef}
+        className="relative w-full max-w-[100vw] overflow-hidden flex bg-ochre py-8 sm:py-12 border-y-4 sm:border-y-8 border-espresso shadow-[0_10px_0_#2A2321] -rotate-1 hover:rotate-0 transition-transform duration-500"
+      >
+        <div
+          className="flex animate-marquee whitespace-nowrap min-w-max"
+          style={{ animationPlayState: marqueeRunning ? 'running' : 'paused' }}
+        >
           {marqueeItems.map((photo, i) => (
             <div key={i} className="mx-3 sm:mx-6 relative group w-[240px] sm:w-[280px] md:w-[350px] shrink-0">
-              <div className="aspect-[4/5] w-full border-4 border-espresso bg-cream p-3 shadow-[8px_8px_0px_#2A2321] group-hover:shadow-[4px_4px_0px_#2A2321] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300">
+              <div className="aspect-4/5 w-full border-4 border-espresso bg-cream p-3 shadow-[8px_8px_0px_#2A2321] transition-[transform,box-shadow] duration-300 ease-out group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-[4px_4px_0px_#2A2321]">
                 <div className="w-full h-full relative overflow-hidden bg-espresso">
                   <img 
                     src={photo.image}
@@ -48,7 +66,7 @@ export default function Gallery() {
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 350px"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 sepia-[.2] contrast-125"
+                    className="h-full w-full object-cover sepia-[.2] contrast-125 transition-transform duration-300 ease-out group-hover:scale-105"
                   />
                 </div>
               </div>

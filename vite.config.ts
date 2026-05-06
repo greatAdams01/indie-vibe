@@ -9,7 +9,8 @@ import {SEO_DESCRIPTION, SEO_KEYWORDS, SITE_NAME, SITE_URL, TWITTER_HANDLE} from
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   const siteUrl = SITE_URL.replace(/\/$/, '');
-  const ogImage = `${siteUrl}/img/IMG_5107.JPG`;
+  const logoUrl = `${siteUrl}/logo-clean.png`;
+  const ogImage = logoUrl;
 
   function transformIndexHtml(html: string) {
     const jsonLd = {
@@ -32,6 +33,7 @@ export default defineConfig(({mode}) => {
           url: siteUrl,
           name: SITE_NAME,
           description: SEO_DESCRIPTION,
+          image: logoUrl,
           publisher: {'@id': `${siteUrl}/#organization`},
         },
       ],

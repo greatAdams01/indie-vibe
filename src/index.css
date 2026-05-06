@@ -51,6 +51,12 @@ body {
   animation: marquee 20s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
 .animate-spin-slow {
   animation: spin 15s linear infinite;
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, Images } from 'lucide-react';
 import { HERO_SHORT_DESCRIPTION, TAGLINE } from '../constants/site';
@@ -44,7 +44,18 @@ const columns = [
 export default function Hero() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [slideReady, setSlideReady] = useState(true);
+  const skipSlideFadeOnMount = useRef(true);
   const slideCount = FEATURED_SLIDES.length;
+  const activeSlide = FEATURED_SLIDES[slideIndex];
+
+  useEffect(() => {
+    if (skipSlideFadeOnMount.current) {
+      skipSlideFadeOnMount.current = false;
+      return;
+    }
+    setSlideReady(false);
+  }, [slideIndex]);
 
   const go = useCallback(
     (dir: -1 | 1) => {
@@ -82,10 +93,9 @@ export default function Hero() {
                     decoding="async"
                     fetchPriority={eager ? 'low' : undefined}
                     sizes="(max-width: 640px) 28vw, 18vw"
-                    className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity brightness-[0.7] contrast-[1.2]"
+                    className="absolute inset-0 h-full w-full object-cover grayscale brightness-[0.65] contrast-[1.15]"
                   />
-                  {/* Subtle noise overlay */}
-                  <div className="absolute inset-0 bg-black opacity-20 mix-blend-overlay"></div>
+                  <div className="pointer-events-none absolute inset-0 bg-black/25" />
                 </div>
               );
               })}
@@ -105,25 +115,23 @@ export default function Hero() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="relative w-full h-full">
-            {FEATURED_SLIDES.map((slide, i) => (
-              <img
-                key={slide.src}
-                src={slide.src}
-                alt={slide.alt}
-                loading={i === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-                fetchPriority={i === 0 ? 'high' : undefined}
-                aria-hidden={i !== slideIndex}
-                className={`absolute inset-0 h-full w-full object-cover mix-blend-luminosity brightness-90 transition-all duration-700 ease-out motion-reduce:transition-none ${
-                  i === slideIndex ? 'z-10 opacity-80 scale-100' : 'z-0 opacity-0 scale-105'
-                }`}
-              />
-            ))}
+          <div className="relative h-full w-full">
+            <img
+              key={activeSlide.src}
+              src={activeSlide.src}
+              alt={activeSlide.alt}
+              loading={slideIndex === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              fetchPriority={slideIndex === 0 ? 'high' : 'low'}
+              onLoad={() => setSlideReady(true)}
+              className={`absolute inset-0 h-full w-full object-cover brightness-90 contrast-105 saturate-90 transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+                slideReady ? 'opacity-80' : 'opacity-0'
+              }`}
+            />
 
             <div className="pointer-events-none absolute inset-0 z-20 bg-linear-to-b from-black/25 via-transparent to-black/50" />
 
-            <div className="absolute left-3 top-3 z-30 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+            <div className="absolute left-3 top-3 z-30 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/90">
               <Images className="h-3.5 w-3.5 text-white/80" strokeWidth={2} />
               <span>Scenes</span>
             </div>
@@ -133,7 +141,7 @@ export default function Hero() {
                 type="button"
                 aria-label="Previous slide"
                 onClick={() => go(-1)}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition hover:bg-black/75"
               >
                 <ChevronLeft className="h-5 w-5" strokeWidth={2} />
               </button>
@@ -143,7 +151,7 @@ export default function Hero() {
                 type="button"
                 aria-label="Next slide"
                 onClick={() => go(1)}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition hover:bg-black/75"
               >
                 <ChevronRight className="h-5 w-5" strokeWidth={2} />
               </button>
