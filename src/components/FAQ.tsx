@@ -38,13 +38,13 @@ export default function FAQ() {
     <section id="faq" className="py-24 md:py-32 bg-cream text-espresso relative scroll-mt-24">
       <div className="absolute inset-0 opacity-[0.06] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row gap-16">
-        <div className="md:w-1/3 shrink-0">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col justify-between md:flex-row gap-10 lg:gap-14 items-start">
+        <div className="md:w-2/5 lg:w-1/3 shrink-0">
           <div className="md:sticky md:top-28 lg:top-32">
-            <h2 className="inline-block bg-terracotta text-cream px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-bold mb-6 rotate-[-2deg] shadow-[2px_2px_0px_#2A2321]">
+            <h2 className="inline-block bg-terracotta text-cream px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-bold mb-6 -rotate-2 shadow-[2px_2px_0px_#2A2321]">
               Curiosity
             </h2>
-            <h3 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl leading-[0.9] tracking-tighter lowercase">
+            <h3 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-[2.6rem] lg:text-6xl leading-[0.95] tracking-tighter lowercase">
               all your <br />
               <span className="text-ochre">questions,</span>
               <br />
@@ -60,7 +60,7 @@ export default function FAQ() {
           </div>
         </div>
 
-        <div className="md:w-2/3 space-y-4">
+        <div className="md:w-[600px] space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (

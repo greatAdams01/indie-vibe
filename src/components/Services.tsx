@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Check } from 'lucide-react';
-import { HERO_SHORT_DESCRIPTION } from '../constants/site';
 
 const serviceItems = [
   'Live music event production',
@@ -29,17 +28,14 @@ export default function Services() {
       <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16 mb-14 md:mb-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16 mb-5 md:mb-5">
           <div className="max-w-2xl">
-            <h2 className="inline-block bg-espresso text-ochre px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-bold mb-6 rotate-2 shadow-[2px_2px_0px_#B94B29]">
+            <h2 className="inline-block font-serif font-extrabold bg-espresso text-ochre px-3 py-1 text-[30px] uppercase tracking-[0.2em] mb-6 rotate-2 shadow-[2px_2px_0px_#B94B29]">
               Core services
             </h2>
-            <h3 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tighter lowercase mb-6">
+            <h3 className="font-serif font-extrabold text-[35px] leading-[0.9] tracking-tighter lowercase mb-6 w-[400px]">
               what we <span className="text-terracotta">build</span> with you.
             </h3>
-            <p className="text-espresso/80 font-medium leading-relaxed text-base sm:text-lg border-l-4 border-ochre pl-4">
-              {HERO_SHORT_DESCRIPTION}
-            </p>
           </div>
         </div>
 

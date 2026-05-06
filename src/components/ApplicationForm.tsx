@@ -32,6 +32,7 @@ export default function ApplicationForm() {
     const phone = String(fd.get('phone') ?? '').trim();
     const applyAs = String(fd.get('apply_as') ?? '').trim();
     const message = String(fd.get('message') ?? '').trim();
+    const joinNewsletter = fd.get('join_newsletter') === 'on';
 
     if (!name || !email || !message) return;
 
@@ -46,9 +47,11 @@ export default function ApplicationForm() {
       replyto: email,
       phone,
       apply_as: applyAs,
+      join_newsletter: joinNewsletter ? 'Yes' : 'No',
       message: [
         `Apply as: ${applyAs || '—'}`,
         phone ? `Phone: ${phone}` : null,
+        `Join newsletter: ${joinNewsletter ? 'Yes' : 'No'}`,
         '',
         message,
       ]
@@ -84,7 +87,7 @@ export default function ApplicationForm() {
       className="border-4 border-espresso bg-cream p-5 sm:p-8 shadow-[8px_8px_0px_#2A2321]"
     >
       <h3 className="font-serif font-extrabold text-2xl sm:text-3xl lowercase tracking-tighter mb-2">
-        Apply &amp; get involved
+        Contact us
       </h3>
       <p className="text-sm text-espresso/75 font-medium mb-6 max-w-xl">
         Tell us who you are and what you&apos;re looking for. Submissions go straight to{' '}
@@ -187,6 +190,16 @@ export default function ApplicationForm() {
           {/* Web3Forms honeypot */}
           <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
+          <label className="flex items-center gap-3 rounded border-2 border-espresso/20 bg-espresso/5 px-3 py-2.5">
+            <input
+              type="checkbox"
+              name="join_newsletter"
+              disabled={!configured}
+              className="h-4 w-4 border-2 border-espresso accent-terracotta disabled:opacity-50"
+            />
+            <span className="text-sm font-medium text-espresso/85">Join our newsletter</span>
+          </label>
+
           {status === 'error' && (
             <p className="text-sm font-medium text-terracotta" role="alert">
               {errorMessage}
@@ -207,7 +220,7 @@ export default function ApplicationForm() {
               ) : (
                 <>
                   <Send className="h-4 w-4" />
-                  Send application
+                  Send message
                 </>
               )}
             </button>

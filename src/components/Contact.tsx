@@ -7,7 +7,6 @@ import {
   BRAND_EMAIL,
   CONSULTATION_OPTIONS,
   getWhatsAppHref,
-  WHATSAPP_DISPLAY,
 } from '../constants/site';
 
 const CALENDLY_EMBED = import.meta.env.VITE_CALENDLY_EMBED_URL ?? '';
@@ -47,12 +46,12 @@ export default function Contact() {
                   <Calendar className="h-5 w-5 text-espresso" />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-xl lowercase tracking-tight">Paid consultations</h4>
+                  <h4 className="font-serif font-bold text-xl lowercase tracking-tight">Book consultations</h4>
                   <p className="text-sm text-espresso/70 font-medium mt-1">{BOOKING_AVAILABILITY}</p>
                 </div>
               </div>
 
-              <ul className="space-y-2 mb-6">
+              {/* <ul className="space-y-2 mb-6">
                 {CONSULTATION_OPTIONS.map((row) => (
                   <li
                     key={row.duration}
@@ -62,7 +61,7 @@ export default function Contact() {
                     <span className="text-terracotta">${row.priceUsd} USD</span>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
 
               {CALENDLY_EMBED ? (
                 <div className="rounded-lg overflow-hidden border-2 border-espresso bg-white min-h-[520px]">
@@ -95,7 +94,7 @@ export default function Contact() {
               <div className="flex items-start gap-3 mb-4">
                 <MessageCircle className="h-6 w-6 text-ochre shrink-0" />
                 <div>
-                  <h4 className="font-serif font-bold text-xl lowercase">Direct line</h4>
+                  <h4 className="font-serif font-bold text-xl lowercase">Contact us</h4>
                   <p className="text-sm text-cream/70 font-medium mt-1">WhatsApp</p>
                 </div>
               </div>
@@ -103,9 +102,9 @@ export default function Contact() {
                 href={getWhatsAppHref("Hi IVHP — I'd like to connect.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 font-bold text-ochre hover:text-cream transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border-2 border-ochre bg-ochre px-4 py-2 font-bold text-espresso hover:bg-transparent hover:text-ochre transition-colors"
               >
-                {WHATSAPP_DISPLAY}
+                Chat on WhatsApp
                 <ExternalLink className="h-4 w-4" />
               </a>
               <p className="mt-4 text-sm text-cream/65 font-medium">

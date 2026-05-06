@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Twitter, Youtube, Music } from 'lucide-react';
-import { BRAND_EMAIL, getWhatsAppHref, WHATSAPP_DISPLAY } from '../constants/site';
+import { BRAND_EMAIL, getWhatsAppHref } from '../constants/site';
 
 export default function Footer() {
   return (
@@ -28,16 +28,14 @@ export default function Footer() {
               rel="noreferrer"
               className="hover:text-terracotta transition-colors border-b border-transparent hover:border-terracotta pb-1 inline-block w-max"
             >
-              WhatsApp {WHATSAPP_DISPLAY}
+              Chat on WhatsApp
             </a>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-cream/10 pt-16">
           <div className="md:col-span-4">
-            <h3 className="font-serif font-extrabold text-4xl mb-6 text-ochre lowercase tracking-tighter">
-              ivhp.
-            </h3>
+            <img src="/logo-clean.png" alt="Indie Vibe House Party" className="h-14 w-auto mb-6" />
             <p className="text-sm text-cream/60 leading-relaxed pr-4 font-medium mb-8">
               Indie Vibe House Party is a live music event production company and collective spotlighting independent musicians and music lovers across Africa and the diaspora—through events, camps, and culture-first collaborations.
             </p>
@@ -148,7 +146,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-cream/10 text-center text-[10px] text-cream/40 uppercase tracking-[0.1em] font-medium">
+        <div className="mt-20 pt-8 border-t border-cream/10 text-center text-[10px] text-cream/40 uppercase tracking-widest font-medium">
           <p>&copy; {new Date().getFullYear()} Indie Vibe House Party. All Rights Reserved.</p>
         </div>
       </div>

@@ -45,7 +45,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6 text-cream/80 font-medium text-base sm:text-lg leading-relaxed relative pl-4 md:pl-0"
             >
-              <div className="absolute left-0 md:-left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-terracotta to-ochre"></div>
+              <div className="absolute left-0 md:-left-6 top-0 bottom-0 w-1 bg-linear-to-b from-terracotta to-ochre"></div>
               <p>
                 <strong className="text-sand font-bold">Indie Vibe House Party (IVHP)</strong> is a live music event production company and music collective that spotlights and supports independent musicians, music companies, and private and corporate consumers of music across Africa and the global African diaspora. Indie Vibe House Party exists to make music feel like home both for creators and for music lovers through live experiences, creative collaborations, and intentional community spaces.
               </p>
@@ -75,7 +75,7 @@ export default function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 inline-block max-w-full bg-terracotta p-4 sm:p-6 shadow-[8px_8px_0px_#D99C3B] rotate-[-1deg]"
+              className="mt-12 inline-block max-w-full bg-terracotta p-4 sm:p-6 shadow-[8px_8px_0px_#D99C3B] -rotate-1"
             >
               <p className="font-serif font-bold text-xl sm:text-2xl text-cream leading-tight lowercase">
                 &ldquo;Not just an audience, <br />
@@ -85,11 +85,11 @@ export default function About() {
           </div>
 
           <div className="w-full lg:w-7/12 relative min-h-[380px] sm:min-h-[460px] md:min-h-[500px] lg:min-h-[600px] order-1 lg:order-2">
-            <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-3/4 md:w-2/3 aspect-[3/4] z-10">
+            <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-3/4 md:w-2/3 aspect-3/4 z-10">
               <div className="w-full h-full border-4 border-cream bg-espresso shadow-[12px_12px_0px_#B94B29] overflow-hidden p-2">
                 <img
-                  src="https://images.unsplash.com/photo-1542617658-6cad5a53e414?q=80&w=1770&auto=format&fit=crop"
-                  alt="Musician with a vintage afro vibe"
+                  src="/img/IMG_5107.JPG"
+                  alt="Live indie performance moment"
                   className="w-full h-full object-cover mix-blend-luminosity brightness-90 contrast-125 sepia-[.3]"
                 />
               </div>
@@ -98,8 +98,8 @@ export default function About() {
             <motion.div style={{ y: y2 }} className="absolute bottom-10 left-0 w-1/2 md:w-5/12 aspect-square z-20">
               <div className="w-full h-full border-4 border-espresso bg-ochre shadow-[8px_8px_0px_#EAE3D9] overflow-hidden p-2">
                 <img
-                  src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1769&auto=format&fit=crop"
-                  alt="Vinyl records"
+                  src="/img/IMG_5098.JPG"
+                  alt="IVHP crowd and community"
                   className="w-full h-full object-cover mix-blend-multiply opacity-80 contrast-150 sepia-[.2]"
                 />
               </div>

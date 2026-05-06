@@ -1,32 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-const locations = [
-  {
-    city: 'Dublin',
-    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop',
-    tagline: 'Acoustic roots.',
-  },
-  {
-    city: 'Lagos',
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1974&auto=format&fit=crop',
-    tagline: 'Alté energy.',
-  },
-  {
-    city: 'Abuja',
-    image: 'https://images.unsplash.com/photo-1493225457124-a1a2a5f5f92c?q=80&w=2070&auto=format&fit=crop',
-    tagline: 'Studio camps.',
-  },
-  {
-    city: 'London',
-    image: 'https://images.unsplash.com/photo-1598369527926-ec483ae59a0f?q=80&w=1887&auto=format&fit=crop',
-    tagline: 'Diaspora link up.',
-  }
+const galleryPhotos = [
+  { image: '/PHOTO-2026-05-05-18-44-36.jpg' },
+  { image: '/PHOTO-2026-05-05-18-44-37.jpg' },
+  { image: '/PHOTO-2026-05-05-18-44-37%202.jpg' },
+  { image: '/PHOTO-2026-05-05-18-44-37%203.jpg' },
+  { image: '/PHOTO-2026-05-05-18-44-37%204.jpg' },
 ];
 
 export default function Gallery() {
   // Duplicate for seamless infinite marquee
-  const marqueeItems = [...locations, ...locations];
+  const marqueeItems = [...galleryPhotos, ...galleryPhotos];
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-cream text-espresso relative overflow-hidden">
@@ -53,22 +38,15 @@ export default function Gallery() {
       {/* Infinite Marquee */}
       <div className="relative w-full max-w-[100vw] overflow-hidden flex bg-ochre py-8 sm:py-12 border-y-4 sm:border-y-8 border-espresso shadow-[0_10px_0_#2A2321] -rotate-1 hover:rotate-0 transition-transform duration-500">
         <div className="flex animate-marquee whitespace-nowrap min-w-max">
-          {marqueeItems.map((loc, i) => (
+          {marqueeItems.map((photo, i) => (
             <div key={i} className="mx-3 sm:mx-6 relative group w-[240px] sm:w-[280px] md:w-[350px] shrink-0">
               <div className="aspect-[4/5] w-full border-4 border-espresso bg-cream p-3 shadow-[8px_8px_0px_#2A2321] group-hover:shadow-[4px_4px_0px_#2A2321] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-300">
                 <div className="w-full h-full relative overflow-hidden bg-espresso">
                   <img 
-                    src={loc.image} 
-                    alt={loc.city}
+                    src={photo.image}
+                    alt="Gallery photo"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 sepia-[.2] contrast-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                    <h4 className="font-serif font-bold text-3xl text-cream lowercase">{loc.city}</h4>
-                    <span className="text-[10px] uppercase font-bold text-ochre bg-espresso px-2 py-1 rotate-[-5deg]">
-                      {loc.tagline}
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>

@@ -33,15 +33,18 @@ export default function Navbar() {
             : 'bg-transparent py-8 lg:py-12'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <div className="flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+          <div className="shrink-0">
             <a
               href="#"
-              className={`font-serif font-extrabold text-2xl tracking-tighter lowercase transition-colors ${
-                isScrolled ? 'text-white' : 'text-white lg:text-transparent'
-              }`}
+              className="inline-flex items-center"
+              aria-label="Indie Vibe House Party home"
             >
-              ivhp.
+              <img
+                src="/logo-clean.png"
+                alt="Indie Vibe House Party"
+                className={`h-10 w-auto transition-opacity ${isScrolled ? 'opacity-100' : 'opacity-95'}`}
+              />
             </a>
           </div>
           
@@ -78,7 +81,7 @@ export default function Navbar() {
             className="fixed inset-0 z-50 bg-[#0a0a0a] flex flex-col p-6"
           >
             <div className="flex justify-between items-center mb-16 relative z-10 mt-2">
-              <span className="font-serif font-extrabold text-3xl tracking-tighter text-white lowercase">ivhp.</span>
+              <img src="/logo-clean.png" alt="Indie Vibe House Party" className="h-10 w-auto" />
               <button 
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 -mr-2 text-white"
