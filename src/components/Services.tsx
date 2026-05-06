@@ -29,11 +29,11 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16 mb-5 md:mb-5">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl w-full min-w-0">
             <h2 className="inline-block font-serif font-extrabold bg-espresso text-ochre px-3 py-1 text-[30px] uppercase tracking-[0.2em] mb-6 rotate-2 shadow-[2px_2px_0px_#B94B29]">
               Core services
             </h2>
-            <h3 className="font-serif font-extrabold text-[35px] leading-[0.9] tracking-tighter lowercase mb-6 w-[400px]">
+            <h3 className="font-serif font-extrabold text-[35px] leading-[0.9] tracking-tighter lowercase mb-6 w-full max-w-[400px]">
               what we <span className="text-terracotta">build</span> with you.
             </h3>
           </div>

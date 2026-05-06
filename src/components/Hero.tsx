@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Images } from 'lucide-react';
 import { HERO_SHORT_DESCRIPTION, TAGLINE } from '../constants/site';
+
+const FEATURED_SLIDES = [
+  { src: '/img/IMG_5107.JPG', alt: 'IVHP live moment' },
+  { src: '/img/IMG_5098.JPG', alt: 'Community at an IVHP event' },
+  { src: '/img/IMG_5104.JPG', alt: 'Artists and crowd' },
+  { src: '/img/730IVHP-224.jpeg', alt: 'House party energy' },
+  { src: '/PHOTO-2026-05-05-18-44-37.jpg', alt: 'IVHP gathering' },
+] as const;
+
+const SLIDE_INTERVAL_MS = 6000;
 
 const columns = [
   [
@@ -32,6 +42,25 @@ const columns = [
 ];
 
 export default function Hero() {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const slideCount = FEATURED_SLIDES.length;
+
+  const go = useCallback(
+    (dir: -1 | 1) => {
+      setSlideIndex((i) => (i + dir + slideCount) % slideCount);
+    },
+    [slideCount],
+  );
+
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setSlideIndex((i) => (i + 1) % slideCount);
+    }, SLIDE_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [paused, slideCount]);
+
   return (
     <section className="relative min-h-svh h-auto md:h-screen md:min-h-[700px] w-full overflow-hidden bg-[#050505] text-white">
       {/* Background Tilted Grid Container */}
@@ -56,7 +85,7 @@ export default function Hero() {
                     className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity brightness-[0.7] contrast-[1.2]"
                   />
                   {/* Subtle noise overlay */}
-                  <div className="absolute inset-0 bg-[#000] opacity-20 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-black opacity-20 mix-blend-overlay"></div>
                 </div>
               );
               })}
@@ -72,27 +101,84 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full max-w-full h-[200px] sm:h-[240px] shrink-0 rounded-xl overflow-hidden shadow-2xl pointer-events-auto group cursor-pointer border border-white/5 bg-black md:absolute md:bottom-24 md:left-6 lg:left-24 md:h-[320px] md:w-[480px] lg:w-[560px] md:max-w-none md:rounded-2xl"
+          className="relative w-full max-w-full h-[200px] sm:h-[240px] shrink-0 rounded-xl overflow-hidden shadow-2xl pointer-events-auto group border border-white/5 bg-black md:absolute md:bottom-24 md:left-6 lg:left-24 md:h-[320px] md:w-[480px] lg:w-[560px] md:max-w-none md:rounded-2xl"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
         >
           <div className="relative w-full h-full">
-            <img 
-              src="/img/IMG_5107.JPG" 
-              alt="Featured Artist Video" 
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity brightness-90"
-            />
-            {/* Play Button Overlay — visible on touch; hover on md+ */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-40 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <Play className="text-white fill-white ml-1 w-5 h-5" />
-              </div>
+            {FEATURED_SLIDES.map((slide, i) => (
+              <img
+                key={slide.src}
+                src={slide.src}
+                alt={slide.alt}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={i === 0 ? 'high' : undefined}
+                aria-hidden={i !== slideIndex}
+                className={`absolute inset-0 h-full w-full object-cover mix-blend-luminosity brightness-90 transition-all duration-700 ease-out motion-reduce:transition-none ${
+                  i === slideIndex ? 'z-10 opacity-80 scale-100' : 'z-0 opacity-0 scale-105'
+                }`}
+              />
+            ))}
+
+            <div className="pointer-events-none absolute inset-0 z-20 bg-linear-to-b from-black/25 via-transparent to-black/50" />
+
+            <div className="absolute left-3 top-3 z-30 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+              <Images className="h-3.5 w-3.5 text-white/80" strokeWidth={2} />
+              <span>Scenes</span>
             </div>
-            {/* Bottom Info Bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-14 sm:h-16 md:h-20 bg-gradient-to-t from-black/90 to-transparent flex items-end justify-between px-4 sm:px-6 pb-3 sm:pb-4">
-              <span className="text-white font-bold text-xs sm:text-sm md:text-base truncate pr-2">Indie Vibe House Party</span>
-              <span className="text-[#a0402b] text-xs sm:text-sm md:text-base font-medium shrink-0">©2026</span>
+
+            <div className="absolute inset-y-0 left-0 z-30 flex w-11 items-center justify-start pl-1 sm:w-12 sm:pl-2">
+              <button
+                type="button"
+                aria-label="Previous slide"
+                onClick={() => go(-1)}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+              >
+                <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+              </button>
+            </div>
+            <div className="absolute inset-y-0 right-0 z-30 flex w-11 items-center justify-end pr-1 sm:w-12 sm:pr-2">
+              <button
+                type="button"
+                aria-label="Next slide"
+                onClick={() => go(1)}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+              >
+                <ChevronRight className="h-5 w-5" strokeWidth={2} />
+              </button>
+            </div>
+
+            <div
+              className="absolute bottom-12 left-0 right-0 z-30 flex justify-center gap-1.5 sm:bottom-14 md:bottom-16"
+              role="tablist"
+              aria-label="Featured photos"
+            >
+              {FEATURED_SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === slideIndex}
+                  aria-label={`Show slide ${i + 1} of ${slideCount}`}
+                  onClick={() => setSlideIndex(i)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === slideIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/45 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 z-20 flex h-14 sm:h-16 md:h-20 items-end justify-between gap-3 bg-linear-to-t from-black/90 to-transparent px-4 pb-3 sm:px-6 sm:pb-4">
+              <span className="min-w-0 truncate text-xs font-bold text-white sm:text-sm md:text-base">
+                Indie Vibe House Party
+              </span>
+              <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+                <span className="text-[10px] font-medium tabular-nums text-white/55 sm:text-xs">
+                  {slideIndex + 1}/{slideCount}
+                </span>
+                <span className="text-[#a0402b] text-xs font-medium sm:text-sm md:text-base">©2026</span>
+              </div>
             </div>
           </div>
         </motion.div>

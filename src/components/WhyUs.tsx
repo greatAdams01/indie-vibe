@@ -21,16 +21,16 @@ export default function WhyUs() {
       <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="w-full max-w-3xl mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-[10px] uppercase tracking-[0.2em] text-ochre font-bold mb-4 border-l-2 border-terracotta pl-2">
             Why IVHP
           </h2>
-          <h3 className="font-serif font-extrabold text-4xl sm:text-5xl md:text-6xl leading-[0.9] tracking-tighter lowercase text-sand">
+          <h3 className="font-serif font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] sm:leading-[0.9] tracking-tighter lowercase text-sand">
             what makes us <span className="text-terracotta italic">different.</span>
           </h3>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+        <ul className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
           {points.map((text, i) => (
             <motion.li
               key={text}
@@ -38,12 +38,12 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.35, delay: i * 0.04 }}
-              className="flex gap-3 items-start bg-sand/5 border border-cream/10 p-4 sm:p-5"
+              className="flex gap-3 items-start bg-sand/5 border border-cream/10 p-3.5 sm:p-5 min-w-0"
             >
               <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-ochre bg-ochre/20">
                 <Check className="h-4 w-4 text-ochre" strokeWidth={3} />
               </span>
-              <span className="text-sm sm:text-base font-medium text-cream/90 leading-snug">{text}</span>
+              <span className="text-xs sm:text-sm md:text-base font-medium text-cream/90 leading-snug">{text}</span>
             </motion.li>
           ))}
         </ul>
