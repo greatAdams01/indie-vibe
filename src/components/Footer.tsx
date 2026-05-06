@@ -1,6 +1,22 @@
 import React from 'react';
-import { Instagram, Twitter, Youtube, Music } from 'lucide-react';
-import { BRAND_EMAIL, getWhatsAppHref } from '../constants/site';
+import { Instagram } from 'lucide-react';
+import { BRAND_EMAIL, getWhatsAppHref, OPERATING_LOCATIONS, SOCIAL_LINKS } from '../constants/site';
+
+function TikTokGlyph({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+    </svg>
+  );
+}
+
+function XLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
@@ -30,6 +46,14 @@ export default function Footer() {
             >
               Chat on WhatsApp
             </a>
+            <div className="pt-4 mt-2 border-t border-cream/15">
+              <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-cream/50 mb-2">
+                Locations of operation
+              </p>
+              <p className="text-base text-cream/90 font-medium leading-snug">
+                {OPERATING_LOCATIONS.join(' · ')}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -39,30 +63,33 @@ export default function Footer() {
             <p className="text-sm text-cream/60 leading-relaxed pr-4 font-medium mb-8">
               Indie Vibe House Party is a live music event production company and collective spotlighting independent musicians and music lovers across Africa and the diaspora—through events, camps, and culture-first collaborations.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-3">
               <a
-                href="#"
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-terracotta hover:text-cream hover:border-terracotta transition-all"
+                aria-label="Indie Vibe House Party on Instagram"
               >
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href={SOCIAL_LINKS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-terracotta hover:text-cream hover:border-terracotta transition-all"
+                aria-label="Indie Vibe House Party on X"
               >
-                <Twitter size={18} />
+                <XLogo className="h-[18px] w-[18px]" />
               </a>
               <a
-                href="#"
+                href={SOCIAL_LINKS.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-terracotta hover:text-cream hover:border-terracotta transition-all"
+                aria-label="Indie Vibe House Party on TikTok"
               >
-                <Youtube size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-terracotta hover:text-cream hover:border-terracotta transition-all"
-              >
-                <Music size={18} />
+                <TikTokGlyph className="h-[18px] w-[18px]" />
               </a>
             </div>
           </div>

@@ -42,18 +42,24 @@ export default function Hero() {
               key={colIndex} 
               className={`w-1/5 min-w-0 flex flex-col gap-2 sm:gap-3 md:gap-6 shrink-0 ${colIndex % 2 !== 0 ? 'translate-y-10 sm:translate-y-16 md:translate-y-20' : '-translate-y-6 sm:-translate-y-8 md:-translate-y-10'}`}
             >
-              {col.map((item) => (
+              {col.map((item, rowIndex) => {
+                const eager = colIndex < 2 && rowIndex < 2;
+                return (
                 <div key={item.id} className="relative w-full pb-[100%] sm:pb-[110%] md:pb-[120%] bg-[#1a1a1a] rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
                   <img 
                     src={item.url} 
                     alt="Artist snapshot" 
-                    loading="lazy"
+                    loading={eager ? 'eager' : 'lazy'}
+                    decoding="async"
+                    fetchPriority={eager ? 'low' : undefined}
+                    sizes="(max-width: 640px) 28vw, 18vw"
                     className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity brightness-[0.7] contrast-[1.2]"
                   />
                   {/* Subtle noise overlay */}
                   <div className="absolute inset-0 bg-[#000] opacity-20 mix-blend-overlay"></div>
                 </div>
-              ))}
+              );
+              })}
             </div>
           ))}
         </div>
@@ -72,6 +78,9 @@ export default function Hero() {
             <img 
               src="/img/IMG_5107.JPG" 
               alt="Featured Artist Video" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity brightness-90"
             />
             {/* Play Button Overlay — visible on touch; hover on md+ */}

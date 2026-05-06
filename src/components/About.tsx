@@ -90,6 +90,9 @@ export default function About() {
                 <img
                   src="/img/IMG_5107.JPG"
                   alt="Live indie performance moment"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 1024px) 75vw, 45vw"
                   className="w-full h-full object-cover mix-blend-luminosity brightness-90 contrast-125 sepia-[.3]"
                 />
               </div>
@@ -100,6 +103,9 @@ export default function About() {
                 <img
                   src="/img/IMG_5098.JPG"
                   alt="IVHP crowd and community"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 1024px) 50vw, 35vw"
                   className="w-full h-full object-cover mix-blend-multiply opacity-80 contrast-150 sepia-[.2]"
                 />
               </div>

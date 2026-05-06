@@ -45,6 +45,9 @@ export default function Gallery() {
                   <img 
                     src={photo.image}
                     alt="Gallery photo"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 350px"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 sepia-[.2] contrast-125"
                   />
                 </div>

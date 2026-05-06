@@ -22,3 +22,13 @@ export function getWhatsAppHref(message?: string): string {
   if (!message?.trim()) return base;
   return `${base}?text=${encodeURIComponent(message.trim())}`;
 }
+
+/** Cities where IVHP operates. */
+export const OPERATING_LOCATIONS = ['Dublin', 'Lagos', 'London'] as const;
+
+/** Official profiles (canonical URLs without tracking params). */
+export const SOCIAL_LINKS = {
+  twitter: 'https://x.com/indievibehparty',
+  instagram: 'https://www.instagram.com/indievibehouseparty',
+  tiktok: 'https://www.tiktok.com/@indievibehouseparty',
+} as const;
