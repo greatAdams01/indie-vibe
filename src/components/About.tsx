@@ -88,12 +88,12 @@ export default function About() {
             <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-3/4 md:w-2/3 aspect-3/4 z-10">
               <div className="w-full h-full border-4 border-cream bg-espresso shadow-[12px_12px_0px_#B94B29] overflow-hidden p-2">
                 <img
-                  src="/img/IMG_5107.JPG"
+                  src="./lady.jpg"
                   alt="Live indie performance moment"
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 1024px) 75vw, 45vw"
-                  className="w-full h-full object-cover mix-blend-luminosity brightness-90 contrast-125 sepia-[.3]"
+                  className="w-full h-full object-cover "
                 />
               </div>
             </motion.div>
