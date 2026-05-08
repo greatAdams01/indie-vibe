@@ -24,7 +24,7 @@ export function getWhatsAppHref(message?: string): string {
 }
 
 /** Cities where IVHP operates. */
-export const OPERATING_LOCATIONS = ['Dublin', 'Lagos', 'London'] as const;
+export const OPERATING_LOCATIONS = ['Dublin', 'Lagos', 'Abuja'] as const;
 
 /** Official profiles (canonical URLs without tracking params). */
 export const SOCIAL_LINKS = {

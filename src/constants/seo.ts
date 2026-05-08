@@ -4,7 +4,7 @@ export const SITE_NAME = 'Indie Vibe House Party';
 export const SITE_URL = 'https://indievibeshouseparty.live';
 
 export const SEO_DESCRIPTION =
-  'Live music collective: intimate events, recording camps, and artist support across Africa and the diaspora. Dublin, Lagos & London.';
+  'Live music collective: intimate events, recording camps, and artist support across Africa and the diaspora. Dublin, Lagos & Abuja.';
 
 export const SEO_KEYWORDS = [
   'Indie Vibe House Party',
@@ -15,7 +15,7 @@ export const SEO_KEYWORDS = [
   'artist collective',
   'Dublin',
   'Lagos',
-  'London',
+  'Abuja',
   'African diaspora',
   'independent artists',
 ].join(', ');
