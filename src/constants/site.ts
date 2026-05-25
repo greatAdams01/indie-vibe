@@ -1,5 +1,5 @@
 /** Public contact and booking details (safe to ship in the client bundle). */
-export const BRAND_EMAIL = 'indievibehouseparty@gmail.com';
+export const BRAND_EMAIL = 'info@indievibehouseparty.live';
 export const TAGLINE = 'The music will guide you home';
 
 export const WHATSAPP_DISPLAY = '+353 83 312 5749';
