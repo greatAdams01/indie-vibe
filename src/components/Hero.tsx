@@ -27,9 +27,9 @@ const columns = [
     { id: 12, url: "/img/730IVHP-224.jpeg" },
   ],
   [
-    { id: 13, url: "/img/IMG_5095.JPG" },
-    { id: 14, url: "/img/IMG_5098.JPG" },
-    { id: 15, url: "/img/IMG_5104.JPG" },
+    { id: 13, url: "/PHOTO-2026-05-26-10-54-35.jpg" },
+    { id: 14, url: "/PHOTO-2026-05-26-10-56-31%202.jpg" },
+    { id: 15, url: "/PHOTO-2026-05-26-10-56-31%203.jpg" },
   ],
 ];
 

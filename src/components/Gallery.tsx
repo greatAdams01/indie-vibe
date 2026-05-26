@@ -6,6 +6,12 @@ const galleryPhotos = [
   { image: '/PHOTO-2026-05-05-18-44-37%202.jpg' },
   { image: '/PHOTO-2026-05-05-18-44-37%203.jpg' },
   { image: '/PHOTO-2026-05-05-18-44-37%204.jpg' },
+  { image: '/lady.jpg' },
+  { image: '/PHOTO-2026-05-26-10-56-31.jpg' },
+  { image: '/PHOTO-2026-05-26-10-59-27%202.jpg' },
+  { image: '/PHOTO-2026-05-26-10-59-27.jpg' },
+  { image: '/PHOTO-2026-05-26-10-59-28%202.jpg' },
+  { image: '/PHOTO-2026-05-26-10-59-28.jpg' },
 ];
 
 export default function Gallery() {

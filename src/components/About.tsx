@@ -88,7 +88,7 @@ export default function About() {
             <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-3/4 md:w-2/3 aspect-3/4 z-10">
               <div className="w-full h-full border-4 border-cream bg-espresso shadow-[12px_12px_0px_#B94B29] overflow-hidden p-2">
                 <img
-                  src="./lady.jpg"
+                  src="/boyspce.jpg"
                   alt="Live indie performance moment"
                   loading="lazy"
                   decoding="async"
@@ -101,7 +101,7 @@ export default function About() {
             <motion.div style={{ y: y2 }} className="absolute bottom-10 left-0 w-1/2 md:w-5/12 aspect-square z-20">
               <div className="w-full h-full border-4 border-espresso bg-ochre shadow-[8px_8px_0px_#EAE3D9] overflow-hidden p-2">
                 <img
-                  src="/img/IMG_5098.JPG"
+                  src="/blqck.jpg"
                   alt="IVHP crowd and community"
                   loading="lazy"
                   decoding="async"
