@@ -11,6 +11,8 @@ const serviceItems = [
   'Collaborative songwriting and production sessions',
   'EP, album, and collective music project development',
   'Creative retreats and cultural immersion experiences',
+  `Experiential event production
+(Weddings, Dinners and more.)`,
   'Brand partnerships and cultural activations',
   'Experiential marketing for music and culture-led campaigns',
   'Community building and industry networking events',
