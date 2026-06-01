@@ -7,29 +7,29 @@ const HERO_FEATURE_VIDEO = '/vibes.mp4';
 
 const columns = [
   [
-    { id: 1, url: "/img/IMG_5095.JPG" },
-    { id: 2, url: "/img/IMG_5096.JPG" },
-    { id: 3, url: "/img/IMG_5097.JPG" },
+    { id: 1, url: "/img/IMG_5095.webp" },
+    { id: 2, url: "/img/IMG_5096.webp" },
+    { id: 3, url: "/img/IMG_5097.webp" },
   ],
   [
-    { id: 4, url: "/img/IMG_5098.JPG" },
-    { id: 5, url: "/img/IMG_5099.JPG" },
-    { id: 6, url: "/img/IMG_5101.JPG" },
+    { id: 4, url: "/img/IMG_5098.webp" },
+    { id: 5, url: "/img/IMG_5099.webp" },
+    { id: 6, url: "/img/IMG_5101.webp" },
   ],
   [
-    { id: 7, url: "/img/IMG_5103.JPG" },
-    { id: 8, url: "/img/IMG_5104.JPG" },
-    { id: 9, url: "/img/IMG_5106.JPG" },
+    { id: 7, url: "/img/IMG_5103.webp" },
+    { id: 8, url: "/img/IMG_5104.webp" },
+    { id: 9, url: "/img/IMG_5106.webp" },
   ],
   [
-    { id: 10, url: "/img/IMG_5107.JPG" },
-    { id: 11, url: "/img/IMG_5109.JPG" },
-    { id: 12, url: "/img/730IVHP-224.jpeg" },
+    { id: 10, url: "/img/IMG_5107.webp" },
+    { id: 11, url: "/img/IMG_5109.webp" },
+    { id: 12, url: "/img/730IVHP-224.webp" },
   ],
   [
-    { id: 13, url: "/PHOTO-2026-05-26-10-54-35.jpg" },
-    { id: 14, url: "/PHOTO-2026-05-26-10-56-31%202.jpg" },
-    { id: 15, url: "/PHOTO-2026-05-26-10-56-31%203.jpg" },
+    { id: 13, url: "/PHOTO-2026-05-26-10-54-35.webp" },
+    { id: 14, url: "/PHOTO-2026-05-26-10-56-31%202.webp" },
+    { id: 15, url: "/PHOTO-2026-05-26-10-56-31%203.webp" },
   ],
 ];
 

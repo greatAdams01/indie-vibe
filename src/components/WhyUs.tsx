@@ -18,7 +18,7 @@ const points = [
 export default function WhyUs() {
   return (
     <section id="why-us" className="py-24 md:py-32 bg-espresso text-cream relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.05] bg-[url('/stucco.webp')] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="w-full max-w-3xl mb-10 sm:mb-12 md:mb-16">

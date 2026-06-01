@@ -14,7 +14,7 @@ const CALENDLY_EMBED = import.meta.env.VITE_CALENDLY_EMBED_URL ?? '';
 export default function Contact() {
   return (
     <section id="contact" className="py-24 md:py-32 bg-sand text-espresso relative scroll-mt-24">
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/stucco.webp')] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-3xl mb-14">

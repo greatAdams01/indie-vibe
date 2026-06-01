@@ -5,7 +5,7 @@ import { Quote } from 'lucide-react';
 export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 md:py-24 bg-cream text-espresso relative">
-      <div className="absolute inset-0 opacity-[0.06] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.06] bg-[url('/stucco.webp')] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
         <motion.div

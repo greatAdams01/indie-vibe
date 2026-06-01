@@ -27,7 +27,7 @@ const serviceItems = [
 export default function Services() {
   return (
     <section id="services" className="py-24 md:py-32 bg-sand text-espresso relative scroll-mt-24">
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/stucco.webp')] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16 mb-5 md:mb-5">

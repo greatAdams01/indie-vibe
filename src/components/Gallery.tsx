@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const galleryPhotos = [
-  { image: '/PHOTO-2026-05-05-18-44-36.jpg' },
-  { image: '/PHOTO-2026-05-05-18-44-37.jpg' },
-  { image: '/PHOTO-2026-05-05-18-44-37%202.jpg' },
-  { image: '/PHOTO-2026-05-05-18-44-37%203.jpg' },
-  { image: '/PHOTO-2026-05-05-18-44-37%204.jpg' },
-  { image: '/lady.jpg' },
-  { image: '/PHOTO-2026-05-26-10-56-31.jpg' },
-  { image: '/PHOTO-2026-05-26-10-59-27%202.jpg' },
-  { image: '/PHOTO-2026-05-26-10-59-27.jpg' },
-  { image: '/PHOTO-2026-05-26-10-59-28%202.jpg' },
-  { image: '/PHOTO-2026-05-26-10-59-28.jpg' },
+  { image: '/PHOTO-2026-05-05-18-44-36.webp' },
+  { image: '/PHOTO-2026-05-05-18-44-37.webp' },
+  { image: '/PHOTO-2026-05-05-18-44-37%202.webp' },
+  { image: '/PHOTO-2026-05-05-18-44-37%203.webp' },
+  { image: '/PHOTO-2026-05-05-18-44-37%204.webp' },
+  { image: '/lady.webp' },
+  { image: '/PHOTO-2026-05-26-10-56-31.webp' },
+  { image: '/PHOTO-2026-05-26-10-59-27%202.webp' },
+  { image: '/PHOTO-2026-05-26-10-59-27.webp' },
+  { image: '/PHOTO-2026-05-26-10-59-28%202.webp' },
+  { image: '/PHOTO-2026-05-26-10-59-28.webp' },
 ];
 
 export default function Gallery() {
@@ -34,7 +34,7 @@ export default function Gallery() {
   return (
     <section id="gallery" className="py-24 md:py-32 bg-cream text-espresso relative overflow-hidden">
       {/* Background vintage texture overlay */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/stucco.webp')] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-16">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">

@@ -36,7 +36,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-24 md:py-32 bg-cream text-espresso relative scroll-mt-24">
-      <div className="absolute inset-0 opacity-[0.06] bg-[url('https://www.transparenttextures.com/patterns/stucco.png')] pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-[0.06] bg-[url('/stucco.webp')] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col justify-between md:flex-row gap-10 lg:gap-14 items-start">
         <div className="md:w-2/5 lg:w-1/3 shrink-0">
